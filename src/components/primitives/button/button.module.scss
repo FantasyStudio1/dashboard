@@ -1,0 +1,84 @@
+.button {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  transition: background 0.2s ease-in-out;
+
+  > span {
+    display: inline-flex;
+  }
+
+  &:focus-visible {
+    outline: none;
+    transition: none;
+    box-shadow: var(--focus-shadow);
+  }
+}
+
+.defaultButton {
+  --gap: var(--space-8);
+  --bg: var(--gray-darker);
+
+  height: 40px;
+  border-radius: var(--radii-8);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-16);
+  background: var(--bg);
+  font-size: var(--fs-16);
+
+  &:active {
+    background: var(--hover-color);
+  }
+
+  &[data-state='open'] {
+    background: var(--hover-color);
+  }
+
+  .suffix,
+  .prefix {
+    font-size: var(--fs-16);
+  }
+}
+
+@media (hover: hover) {
+  .defaultButton:hover {
+    background: var(--hover-color);
+  }
+}
+
+.selectButton {
+  --gap: 6px;
+  --bg: var(--gray-lighter);
+
+  height: 36px;
+  border-radius: var(--radii-8);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-12);
+  font-size: var(--fs-14);
+  background: var(--bg);
+
+  &:active {
+    background: var(--hover-color-secondary);
+  }
+
+  .suffix,
+  .prefix {
+    font-size: var(--fs-13);
+  }
+}
+
+@media (hover: hover) {
+  .selectButton:hover {
+    background: var(--hover-color-secondary);
+  }
+}
+
+.prefix {
+  margin-right: var(--gap);
+}
+
+.suffix {
+  margin-left: var(--gap);
+}

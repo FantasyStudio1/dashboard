@@ -1,0 +1,27 @@
+.content {
+  max-height: var(--radix-dropdown-menu-content-available-height);
+  transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+
+  background: var(--gray-lighter);
+  border-radius: var(--radii-8);
+  padding: 5px;
+}
+
+.item {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  border-radius: var(--radii-4);
+  padding: 0 var(--space-12);
+  position: relative;
+  user-select: none;
+
+  &[data-highlighted] {
+    outline: none;
+    background: var(--black-lighter);
+  }
+}

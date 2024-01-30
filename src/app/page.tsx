@@ -1,95 +1,50 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import { Suspense } from 'react'
+import { IoTicketOutline } from 'react-icons/io5'
+
+import { AnalyticsItem, AnalyticsItemLoader } from '@/components/analytics-item'
+import { PageTitle, SectionContainer } from '@/components/common'
+import { DonutChart } from '@/components/donut-chart'
+import { RevenueChart } from '@/components/revenue-chart'
+import { Users } from '@/components/users'
+
+import s from './dashboard.module.scss'
+import ExportsButton from './exports-button'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <PageTitle title='Dashboard' description={`Here's your analytic detail`}>
+        <ExportsButton />
+      </PageTitle>
+      <div className={s.mainContent}>
+        <div className={s.firstRow}>
+          <div className={s.analyticsGrid}>
+            <Suspense fallback={<AnalyticsItemLoader />}>
+              <AnalyticsItem title='Total Sales' Icon={<IoTicketOutline />} range={[5000, 28000]} />
+            </Suspense>
+            <Suspense fallback={<AnalyticsItemLoader />}>
+              <AnalyticsItem title='Total Orders' Icon={<IoTicketOutline />} range={[10, 1000]} />
+            </Suspense>
+            <Suspense fallback={<AnalyticsItemLoader />}>
+              <AnalyticsItem title='Visitors' Icon={<IoTicketOutline />} range={[10000, 100000]} />
+            </Suspense>
+            <Suspense fallback={<AnalyticsItemLoader />}>
+              <AnalyticsItem title='Refunded' Icon={<IoTicketOutline />} range={[50, 100]} />
+            </Suspense>
+          </div>
+          <SectionContainer className={s.revenue}>
+            <RevenueChart />
+          </SectionContainer>
+        </div>
+        <div className={s.secondRow}>
+          <SectionContainer style={{ flex: 1 }}>
+            <Users />
+          </SectionContainer>
+          <SectionContainer className={s.donutChartContainer}>
+            <DonutChart />
+          </SectionContainer>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   )
 }

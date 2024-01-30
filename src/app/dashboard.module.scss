@@ -1,0 +1,88 @@
+.mainContent {
+  --flex-gap: var(--space-20);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--flex-gap);
+}
+
+.firstRow {
+  display: flex;
+  flex-direction: row;
+  gap: var(--flex-gap);
+}
+
+.analyticsGrid {
+  flex: 1;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--flex-gap);
+
+  > div {
+    width: calc(50% - var(--flex-gap) / 2);
+  }
+}
+
+.revenue {
+  flex: 1;
+}
+
+.secondRow {
+  display: flex;
+  flex-direction: row;
+  gap: var(--flex-gap);
+}
+
+.donutChartContainer {
+  flex-basis: 400px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1050px) {
+  .firstRow {
+    flex-direction: column;
+  }
+
+  .secondRow {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pageInfo {
+    > h1 {
+      font-size: var(--fs-24);
+      line-height: 32px;
+    }
+
+    > p {
+      font-size: var(--fs-14);
+      line-height: 20px;
+    }
+  }
+  .heading {
+    margin-bottom: var(--space-24);
+    margin-top: var(--space-20);
+  }
+
+  .mainContent {
+    --flex-gap: 10px;
+  }
+
+  .donutChartContainer {
+    flex-basis: initial;
+    flex-shrink: initial;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .analyticsGrid {
+    flex-direction: column;
+
+    > div {
+      width: 100%;
+    }
+  }
+}

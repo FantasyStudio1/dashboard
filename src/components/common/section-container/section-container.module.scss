@@ -1,0 +1,12 @@
+.root {
+  background: var(--black-lighter);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radii-16);
+  padding: var(--space-20);
+}
+
+@media screen and (max-width: 768px) {
+  .root {
+    padding: var(--space-12);
+  }
+}

@@ -1,0 +1,39 @@
+.selectContent {
+  overflow: hidden;
+  background: var(--gray-lighter);
+  border-radius: var(--radii-8);
+}
+
+.viewport {
+  padding: 5px;
+}
+
+.selectItem {
+  cursor: pointer;
+  font-size: var(--fs-14);
+  line-height: 1;
+  //color: white;
+  border-radius: var(--radii-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  padding: 0 45px 0 28px;
+  position: relative;
+  user-select: none;
+
+  &[data-highlighted] {
+    outline: none;
+    //color: white;
+    background: var(--black-lighter);
+  }
+}
+
+.itemIndicator {
+  position: absolute;
+  left: 0;
+  width: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

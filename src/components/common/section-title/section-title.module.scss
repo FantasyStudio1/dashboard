@@ -1,0 +1,22 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-20);
+}
+
+.title {
+  font-size: var(--fs-24);
+  font-weight: 300;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: var(--fs-18);
+  }
+
+  .row {
+    margin-bottom: var(--space-16);
+  }
+}

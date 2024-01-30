@@ -1,0 +1,203 @@
+.root {
+  height: 208px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-16);
+}
+
+.name {
+  display: flex;
+  align-items: center;
+
+  [data-icon] {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: rgb(85, 66, 246, 0.2);
+    color: var(--purple);
+    margin-right: 6px;
+  }
+
+  [data-title] {
+    font-size: var(--fs-14);
+    line-height: 25px;
+    opacity: 0.9;
+  }
+}
+
+.settingsButton {
+  cursor: pointer;
+  display: inline-flex;
+  opacity: 0.75;
+  border-radius: var(--radii-4);
+  transition: opacity 0.2s ease-in-out;
+
+  &:active {
+    opacity: 1;
+  }
+
+  &[data-state='open'] {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: none;
+    transition: none;
+    box-shadow: var(--focus-shadow);
+  }
+}
+
+@media (hover: hover) {
+  .settingsButton:hover {
+    opacity: 1;
+  }
+}
+
+.content {
+  padding-bottom: var(--space-16);
+  margin-bottom: var(--space-12);
+  border-bottom: 1px solid var(--border-color);
+
+  [data-main-value] {
+    font-size: var(--fs-24);
+    font-weight: var(--fw-500);
+    margin-bottom: var(--space-4);
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.percentProfit {
+  font-size: var(--fs-16);
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  font-weight: var(--fw-500);
+  gap: 6px;
+
+  > svg {
+    stroke-width: 1px;
+  }
+
+  &[data-profit='true'] {
+    color: var(--green);
+  }
+
+  &[data-profit='false'] {
+    color: var(--red);
+  }
+}
+
+.valueProfit {
+  font-size: var(--fs-14);
+  line-height: 14px;
+  opacity: 0.5;
+}
+
+.viewButton {
+  cursor: pointer;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  border-radius: var(--radii-4);
+  transition: opacity 0.2s ease-in-out;
+
+  &:active {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: none;
+    transition: none;
+    box-shadow: var(--focus-shadow);
+  }
+}
+
+@media (hover: hover) {
+  .viewButton:hover {
+    opacity: 0.75;
+  }
+}
+
+.loader {
+  height: 208px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  > svg {
+    font-size: 24px;
+    opacity: 0.25;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .root {
+    height: 160px;
+  }
+  .loader {
+    height: 160px;
+  }
+  .heading {
+    margin-bottom: var(--space-12);
+  }
+
+  .content {
+    padding-bottom: var(--space-12);
+    margin-bottom: var(--space-8);
+    [data-main-value] {
+      font-size: var(--fs-18);
+    }
+  }
+
+  .row {
+    gap: var(--space-8);
+  }
+
+  .percentProfit {
+    font-size: var(--fs-14);
+    line-height: 14px;
+    gap: var(--space-4);
+  }
+
+  .valueProfit {
+    font-size: var(--fs-13);
+  }
+
+  .viewButton {
+    font-size: var(--fs-14);
+  }
+}

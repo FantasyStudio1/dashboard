@@ -1,0 +1,76 @@
+.sidebar {
+  --section-margin: var(--space-20);
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  min-width: var(--sidebar-width);
+  background: var(--black-lighter);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 var(--space-20) var(--space-32);
+}
+
+.topSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: var(--top-section-height);
+  border-bottom: 1px solid var(--border-color);
+  font-size: var(--fs-24);
+  font-weight: var(--fw-600);
+  margin-bottom: var(--section-margin);
+  user-select: none;
+}
+
+.radiogroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  > button {
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    transition: opacity 0.2s ease-in-out;
+
+    &[aria-checked='true'] {
+      background-color: var(--hover-color);
+      //color: white;
+    }
+
+    &:focus-visible {
+      transition: none;
+      box-shadow: var(--focus-shadow);
+    }
+
+    //&:active {
+    //  color: white;
+    //}
+
+    > svg {
+      display: inline-flex;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .radiogroup {
+    button:not([aria-checked='true']):hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+@media screen and (max-width: 1360px) {
+  .sidebar {
+    display: none;
+  }
+}

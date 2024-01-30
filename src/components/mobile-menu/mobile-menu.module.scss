@@ -1,0 +1,20 @@
+.root {
+  position: fixed;
+  inset: 0;
+  background: var(--black-lighter);
+  z-index: 10;
+}
+
+.content {
+  --section-margin: var(--space-16);
+  max-width: var(--content-width-with-padding);
+  margin: auto;
+  padding: var(--content-padding);
+
+  > div {
+    display: flex;
+    align-items: center;
+    margin-top: var(--space-24);
+    justify-content: space-between;
+  }
+}

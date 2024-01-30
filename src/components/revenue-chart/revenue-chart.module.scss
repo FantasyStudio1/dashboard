@@ -1,0 +1,47 @@
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-20);
+}
+
+.chart {
+  height: 330px;
+  width: 100%;
+}
+
+.YAxis {
+  font-size: 12px;
+  line-height: 16px;
+  fill: var(--half-opacity-primary);
+}
+
+.XAxis {
+  font-size: 12px;
+  line-height: 16px;
+  fill: var(--half-opacity-primary);
+}
+
+.gridLine {
+  stroke-width: 1;
+  stroke: var(--half-opacity-primary);
+}
+
+.chart > svg {
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 500px) {
+  .chart > svg {
+    padding-top: 15px;
+    margin-top: initial;
+  }
+
+  .chart {
+    height: 230px;
+  }
+
+  .gridLine {
+    stroke-width: 0.5;
+  }
+}

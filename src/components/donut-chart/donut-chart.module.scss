@@ -1,0 +1,13 @@
+.donutContainer {
+  height: 300px;
+
+  * {
+    outline: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .donutContainer {
+    height: 250px;
+  }
+}
