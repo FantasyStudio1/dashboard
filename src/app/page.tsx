@@ -38,7 +38,9 @@ export default function Home() {
         </div>
         <div className={s.secondRow}>
           <SectionContainer style={{ flex: 1 }}>
-            <Users />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Users />
+            </Suspense>
           </SectionContainer>
           <SectionContainer className={s.donutChartContainer}>
             <DonutChart />
